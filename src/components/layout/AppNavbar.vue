@@ -5,8 +5,11 @@ import { RouterLink, useRoute } from 'vue-router'
 
 import BaseIconButton from '../common/BaseIconButton.vue'
 import BrandLogo from '../common/BrandLogo.vue'
+import MovieImage from '../common/MovieImage.vue'
+import { useProfileStore } from '../../stores/profile'
 
 const route = useRoute()
+const profileStore = useProfileStore()
 const isScrolled = ref(false)
 const isMobileMenuOpen = ref(false)
 
@@ -21,6 +24,7 @@ function closeMobileMenu(): void {
 }
 
 onMounted(() => {
+  profileStore.hydrate()
   updateScrollState()
   window.addEventListener('scroll', updateScrollState, { passive: true })
 })
@@ -52,7 +56,16 @@ onUnmounted(() => {
           <BaseIconButton label="Search"><Search :size="20" stroke-width="1.8" /></BaseIconButton>
         </RouterLink>
         <RouterLink to="/profiles" class="hidden sm:block" aria-label="Switch profile">
-          <span class="flex size-8 items-center justify-center rounded-md bg-red-700 text-xs font-bold text-white">S</span>
+          <span class="flex size-8 items-center justify-center overflow-hidden rounded-md bg-zinc-800 text-xs font-bold text-white">
+            <MovieImage
+              v-if="profileStore.selectedProfile"
+              :src="profileStore.selectedProfile.avatar"
+              :alt="`${profileStore.selectedProfile.name} profile`"
+              :title="profileStore.selectedProfile.name"
+              type="avatar"
+            />
+            <span v-else>?</span>
+          </span>
         </RouterLink>
         <BaseIconButton class="md:hidden" :label="isMobileMenuOpen ? 'Close menu' : 'Open menu'" @click="isMobileMenuOpen = !isMobileMenuOpen">
           <X v-if="isMobileMenuOpen" :size="21" />
