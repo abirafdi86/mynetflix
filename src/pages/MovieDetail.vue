@@ -46,12 +46,12 @@ function toggleMyList(): void {
 
 <template>
   <main class="min-h-screen bg-[#141414] pb-20 text-white">
-    <section v-if="movie" class="relative flex min-h-[72svh] items-end overflow-hidden pt-20 sm:min-h-[80svh]">
+    <section v-if="movie" class="relative flex min-h-[70svh] items-end overflow-hidden pt-20 sm:min-h-[80svh]">
       <MovieImage :src="movie.backdrop" :alt="movie.title" :title="movie.title" type="backdrop" class="absolute inset-0" />
       <div class="absolute inset-0 bg-gradient-to-r from-black/95 via-black/65 to-black/15" />
       <div class="absolute inset-0 bg-gradient-to-t from-[#141414] via-black/10 to-black/35" />
 
-      <div class="relative z-10 max-w-2xl px-5 pb-14 sm:px-8 sm:pb-20 lg:px-12">
+      <div class="relative z-10 max-w-2xl px-5 pb-12 sm:px-8 sm:pb-20 lg:px-12">
         <p class="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-zinc-300">Movie</p>
         <h1 class="text-4xl font-bold tracking-tight sm:text-6xl">{{ movie.title }}</h1>
         <div class="mt-5 flex flex-wrap items-center gap-3 text-sm text-zinc-200">
@@ -61,7 +61,7 @@ function toggleMyList(): void {
           <span class="h-1 w-1 rounded-full bg-zinc-500" />
           <span>{{ movie.duration }} min</span>
         </div>
-        <p class="mt-5 max-w-xl text-sm leading-6 text-zinc-200 sm:text-base sm:leading-7">{{ movie.description }}</p>
+        <p class="mt-5 line-clamp-4 max-w-xl text-sm leading-6 text-zinc-200 sm:line-clamp-none sm:text-base sm:leading-7">{{ movie.description }}</p>
         <div class="mt-7 flex flex-wrap gap-3">
           <BaseButton @click="playMovie"><Play :size="19" fill="currentColor" /> Play</BaseButton>
           <button

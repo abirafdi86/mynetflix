@@ -43,12 +43,12 @@ onUnmounted(resetPlayer)
 </script>
 
 <template>
-  <main class="flex min-h-screen items-center justify-center bg-black px-4 py-20 text-white sm:px-8">
+  <main class="relative flex min-h-screen items-center justify-center overflow-hidden bg-black px-2 py-16 text-white sm:px-8 sm:py-20">
     <template v-if="movie">
       <BrandIntro v-if="playerState === 'intro'" @complete="showVideo" />
       <RouterLink
         :to="{ name: 'movie-detail', params: { id: movie.id } }"
-        class="absolute left-4 top-4 z-10 inline-flex min-h-10 items-center gap-2 rounded-md bg-black/60 px-3 py-2 text-sm text-zinc-200 transition-colors duration-200 hover:bg-black/85 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:left-8 sm:top-8"
+        class="absolute left-3 top-3 z-10 inline-flex min-h-10 items-center gap-2 rounded-md bg-black/60 px-3 py-2 text-sm text-zinc-200 transition-colors duration-200 hover:bg-black/85 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:left-8 sm:top-8"
       >
         <ArrowLeft :size="19" />
         <span>Back</span>
@@ -57,7 +57,7 @@ onUnmounted(resetPlayer)
       <video
         v-if="playerState === 'video' && !videoError"
         ref="videoElement"
-        class="h-[100svh] w-screen object-contain"
+        class="max-h-[100svh] max-w-full object-contain"
         autoplay
         controls
         playsinline

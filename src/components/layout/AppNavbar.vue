@@ -40,7 +40,7 @@ onUnmounted(() => {
     class="fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-300"
     :class="isScrolled || isMobileMenuOpen ? 'bg-[#141414]/95 shadow-lg shadow-black/20 backdrop-blur-md' : 'bg-transparent'"
   >
-    <div class="mx-auto flex h-[4.5rem] max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12">
+    <div class="mx-auto flex h-[4.5rem] max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-8 lg:px-12">
       <RouterLink to="/home" class="transition-opacity hover:opacity-80" @click="closeMobileMenu">
         <BrandLogo size="sm" />
       </RouterLink>
@@ -55,8 +55,8 @@ onUnmounted(() => {
         <RouterLink to="/search">
           <BaseIconButton label="Search"><Search :size="20" stroke-width="1.8" /></BaseIconButton>
         </RouterLink>
-        <RouterLink to="/profiles" class="hidden sm:block" aria-label="Switch profile">
-          <span class="flex size-8 items-center justify-center overflow-hidden rounded-md bg-zinc-800 text-xs font-bold text-white">
+        <RouterLink to="/profiles" class="block" aria-label="Switch profile">
+          <span class="flex size-8 items-center justify-center overflow-hidden rounded-md bg-zinc-800 text-xs font-bold text-white sm:size-9">
             <MovieImage
               v-if="profileStore.selectedProfile"
               :src="profileStore.selectedProfile.avatar"

@@ -15,7 +15,7 @@ const myListMovies = computed<Movie[]>(() => [])
 </script>
 
 <template>
-  <main class="min-h-screen overflow-hidden bg-[#141414] pb-20 text-white">
+  <main class="min-h-screen overflow-hidden bg-[#141414] pb-16 text-white sm:pb-20">
     <HeroBanner v-if="featuredMovie" :movie="featuredMovie" />
 
     <div class="relative z-10 -mt-1">

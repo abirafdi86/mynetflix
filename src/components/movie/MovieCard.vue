@@ -12,7 +12,7 @@ defineProps<{
 <template>
   <RouterLink
     :to="{ name: 'movie-detail', params: { id: movie.id } }"
-    class="group block w-[190px] shrink-0 rounded-sm outline-none sm:w-[240px] lg:w-[280px]"
+    class="group block w-[min(68vw,190px)] shrink-0 rounded-sm outline-none sm:w-[240px] lg:w-[280px]"
   >
     <div class="aspect-video overflow-hidden rounded-sm bg-zinc-800 ring-1 ring-transparent transition-[transform,box-shadow] duration-300 group-focus-visible:ring-white">
       <MovieImage :src="movie.thumbnail" :alt="movie.title" :title="movie.title" type="thumbnail" class="transition-transform duration-300 ease-out group-hover:scale-105 group-focus-visible:scale-105" />

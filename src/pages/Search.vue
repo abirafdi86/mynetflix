@@ -42,7 +42,7 @@ const filteredMovies = computed(() => {
         No movies found for "{{ query }}"
       </p>
 
-      <div v-else class="mt-12 grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3 sm:gap-x-4 lg:grid-cols-4 xl:grid-cols-5">
+      <div v-else class="search-grid mt-12 grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3 sm:gap-x-4 lg:grid-cols-4 xl:grid-cols-5">
         <MovieCard v-for="movie in filteredMovies" :key="movie.id" :movie="movie" />
       </div>
     </section>

@@ -28,7 +28,7 @@ function handleAvatarError(event: Event): void {
       <BrandLogo size="sm" />
       <h1 class="text-3xl font-medium tracking-tight sm:text-5xl">Who's watching?</h1>
 
-      <div class="mt-10 flex flex-wrap justify-center gap-5 sm:mt-14 sm:gap-10">
+      <div class="mt-10 grid grid-cols-2 justify-items-center gap-x-4 gap-y-7 sm:mt-14 sm:flex sm:flex-wrap sm:gap-10">
         <button
           v-for="profile in profiles"
           :key="profile.id"

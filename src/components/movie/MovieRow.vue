@@ -19,7 +19,7 @@ function scrollRow(distance: number): void {
 </script>
 
 <template>
-  <section v-if="movies.length" class="group/row relative mt-9 sm:mt-12">
+  <section v-if="movies.length" class="group/row relative mt-8 sm:mt-12">
     <div class="mb-4 flex items-center justify-between px-5 sm:px-8 lg:px-12">
       <h2 class="text-lg font-semibold tracking-tight text-white sm:text-2xl">{{ title }}</h2>
       <div class="hidden items-center gap-1 opacity-0 transition-opacity duration-200 group-hover/row:opacity-100 md:flex">
@@ -32,7 +32,7 @@ function scrollRow(distance: number): void {
       </div>
     </div>
 
-    <div ref="rowElement" class="movie-row flex gap-3 overflow-x-auto px-5 pb-2 sm:gap-4 sm:px-8 lg:px-12">
+    <div ref="rowElement" class="movie-row flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 sm:gap-4 sm:px-8 lg:px-12">
       <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie" />
     </div>
   </section>
